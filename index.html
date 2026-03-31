@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="MobiBus - A revolução da mobilidade urbana">
+    <meta name="theme-color" content="#0a2b3e">
+    <title>MobiBus | Mobilidade Urbana Inteligente</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Glassmorphism Navigation -->
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <div class="logo-wrapper">
+                <div class="logo-icon">
+                    <i class="fas fa-bus-alt"></i>
+                    <div class="pulse-ring"></div>
+                </div>
+                <span class="logo-text">Mobi<span class="gradient">Bus</span></span>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html" class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Início</span>
+                </a>
+                <a href="pages/mapa.html" class="nav-item">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span>Mapa ao Vivo</span>
+                </a>
+                <a href="pages/linhas.html" class="nav-item">
+                    <i class="fas fa-bus"></i>
+                    <span>Linhas</span>
+                </a>
+                <a href="pages/tarifas.html" class="nav-item">
+                    <i class="fas fa-ticket-alt"></i>
+                    <span>Tarifas</span>
+                </a>
+                <a href="pages/perfil.html" class="nav-item">
+                    <i class="fas fa-user-astronaut"></i>
+                    <span>Perfil</span>
+                </a>
+            </div>
+            
+            <div class="nav-actions">
+                <div class="user-preview" id="userPreview">
+                    <div class="avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <span id="userName">Visitante</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <button class="mobile-toggle" id="mobileToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Premium -->
+    <section class="hero-premium">
+        <div class="hero-bg">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-bolt"></i>
+                <span>EM TEMPO REAL</span>
+            </div>
+            
+            <h1 class="hero-title">
+                Transforme sua
+                <span class="gradient-text">mobilidade urbana</span>
+                com inteligência
+            </h1>
+            
+            <p class="hero-description">
+                Chega de esperar no ponto sem saber. Acompanhe ônibus em tempo real, 
+                economize até 20% do seu tempo e revolucione sua rotina.
+            </p>
+            
+            <div class="hero-cta">
+                <a href="pages/mapa.html" class="btn-primary-glow">
+                    <span>Começar Agora</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#features" class="btn-outline-premium">
+                    <i class="fas fa-play"></i>
+                    <span>Ver Demo</span>
+                </a>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="stat-premium">
+                    <div class="stat-number" id="activeBuses">0</div>
+                    <div class="stat-label">Ônibus Ativos</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-premium">
+                    <div class="stat-number" id="usersActive">0</div>
+                    <div class="stat-label">Usuários</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-premium">
+                    <div class="stat-number" id="timeSaved">0</div>
+                    <div class="stat-label">Min/ Economizados</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-visual">
+            <div class="phone-mockup">
+                <div class="mockup-screen">
+                    <div class="mockup-header">
+                        <div class="mockup-time">12:30</div>
+                        <div class="mockup-battery">
+                            <i class="fas fa-battery-full"></i>
+                        </div>
+                    </div>
+                    <div class="mockup-map">
+                        <canvas id="mockupCanvas" width="280" height="400"></canvas>
+                        <div class="moving-bus">
+                            <i class="fas fa-bus"></i>
+                        </div>
+                    </div>
+                    <div class="mockup-footer">
+                        <div class="eta-badge">
+                            <i class="fas fa-clock"></i>
+                            <span>Próximo ônibus: 3 min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section - Modern Cards -->
+    <section class="features-premium" id="features">
+        <div class="section-header">
+            <span class="section-tag">Recursos Exclusivos</span>
+            <h2 class="section-title">Tecnologia que <span class="gradient-text">transforma</span> sua experiência</h2>
+            <p class="section-subtitle">Descubra como o MobiBus está revolucionando a mobilidade urbana</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card-premium">
+                <div class="card-glow"></div>
+                <div class="card-icon">
+                    <i class="fas fa-satellite-dish"></i>
+                </div>
+                <h3>GPS em Tempo Real</h3>
+                <p>Localização precisa dos ônibus com atualização a cada 3 segundos</p>
+                <div class="card-metric">
+                    <span>Precisão de 98%</span>
+                    <i class="fas fa-chart-line"></i>
+                </div>
+            </div>
+            
+            <div class="feature-card-premium">
+                <div class="card-glow"></div>
+                <div class="card-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>ETA Inteligente</h3>
+                <p>Cálculo avançado baseado em tráfego, velocidade e histórico</p>
+                <div class="card-metric">
+                    <span>Margem de erro: 2min</span>
+                    <i class="fas fa-robot"></i>
+                </div>
+            </div>
+            
+            <div class="feature-card-premium">
+                <div class="card-glow"></div>
+                <div class="card-icon">
+                    <i class="fas fa-chart-simple"></i>
+                </div>
+                <h3>Redução de Atrasos</h3>
+                <p>Planeje seus horários com precisão e economize tempo</p>
+                <div class="card-metric">
+                    <span>Até 20% menos espera</span>
+                    <i class="fas fa-hourglass-half"></i>
+                </div>
+            </div>
+            
+            <div class="feature-card-premium">
+                <div class="card-glow"></div>
+                <div class="card-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Tarifas Especiais</h3>
+                <p>Informações atualizadas sobre meia-passagem e benefícios</p>
+                <div class="card-metric">
+                    <span>Economia de 50%</span>
+                    <i class="fas fa-tag"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Dashboard Section -->
+    <section class="dashboard-preview">
+        <div class="section-header dark">
+            <span class="section-tag">Monitoramento ao Vivo</span>
+            <h2 class="section-title">Acompanhe tudo em <span class="gradient-text">tempo real</span></h2>
+        </div>
+        
+        <div class="dashboard-container">
+            <div class="dashboard-card">
+                <div class="dashboard-header">
+                    <div class="live-badge">
+                        <div class="pulse-dot"></div>
+                        <span>AO VIVO</span>
+                    </div>
+                    <div class="dashboard-controls">
+                        <button class="control-btn active" data-line="all">
+                            <i class="fas fa-chart-line"></i>
+                            Todas
+                        </button>
+                        <button class="control-btn" data-line="203">
+                            <i class="fas fa-bus"></i>
+                            Linha 203
+                        </button>
+                        <button class="control-btn" data-line="415">
+                            <i class="fas fa-bus"></i>
+                            Linha 415
+                        </button>
+                        <button class="control-btn" data-line="512">
+                            <i class="fas fa-bus"></i>
+                            Linha 512
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="dashboard-content">
+                    <div class="lines-status">
+                        <div class="line-card" data-line="203">
+                            <div class="line-header">
+                                <div class="line-color" style="background: #FF6B6B"></div>
+                                <div class="line-info">
+                                    <h4>Linha 203</h4>
+                                    <p>Centro/Zona Sul</p>
+                                </div>
+                                <div class="line-status-badge status-on-time">
+                                    <i class="fas fa-check-circle"></i>
+                                    No horário
+                                </div>
+                            </div>
+                            <div class="line-stats">
+                                <div class="stat">
+                                    <i class="fas fa-hourglass-half"></i>
+                                    <span>Próximo: <strong id="eta203">3 min</strong></span>
+                                </div>
+                                <div class="stat">
+                                    <i class="fas fa-bus"></i>
+                                    <span>Ônibus ativos: <strong>4</strong></span>
+                                </div>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-bar" id="progress203" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="line-card" data-line="415">
+                            <div class="line-header">
+                                <div class="line-color" style="background: #4ECDC4"></div>
+                                <div class="line-info">
+                                    <h4>Linha 415</h4>
+                                    <p>Universidades</p>
+                                </div>
+                                <div class="line-status-badge status-delayed">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    Tráfego intenso
+                                </div>
+                            </div>
+                            <div class="line-stats">
+                                <div class="stat">
+                                    <i class="fas fa-hourglass-half"></i>
+                                    <span>Próximo: <strong id="eta415">7 min</strong></span>
+                                </div>
+                                <div class="stat">
+                                    <i class="fas fa-bus"></i>
+                                    <span>Ônibus ativos: <strong>3</strong></span>
+                                </div>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-bar" id="progress415" style="width: 53%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="line-card" data-line="512">
+                            <div class="line-header">
+                                <div class="line-color" style="background: #45B7D1"></div>
+                                <div class="line-info">
+                                    <h4>Linha 512</h4>
+                                    <p>Industrial/Parque</p>
+                                </div>
+                                <div class="line-status-badge status-approaching">
+                                    <i class="fas fa-bus"></i>
+                                    Aproximando
+                                </div>
+                            </div>
+                            <div class="line-stats">
+                                <div class="stat">
+                                    <i class="fas fa-hourglass-half"></i>
+                                    <span>Próximo: <strong id="eta512">1 min</strong></span>
+                                </div>
+                                <div class="stat">
+                                    <i class="fas fa-bus"></i>
+                                    <span>Ônibus ativos: <strong>5</strong></span>
+                                </div>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-bar" id="progress512" style="width: 93%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="section-header">
+            <span class="section-tag">Depoimentos</span>
+            <h2 class="section-title">Quem já usa <span class="gradient-text">recomenda</span></h2>
+        </div>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="quote-icon">
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                <p>"Desde que comecei a usar o MobiBus, nunca mais perdi o ônibus. A precisão do ETA é impressionante!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Marina">
+                    </div>
+                    <div class="author-info">
+                        <h4>Marina Costa</h4>
+                        <span>Estudante</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="quote-icon">
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                <p>"Economizo em média 20 minutos por dia. A funcionalidade de mapa ao vivo mudou minha rotina."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="Carlos">
+                    </div>
+                    <div class="author-info">
+                        <h4>Carlos Mendes</h4>
+                        <span>Engenheiro</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="quote-icon">
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                <p>"Melhor app de mobilidade urbana! As informações de tarifas são sempre atualizadas."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="Juliana">
+                    </div>
+                    <div class="author-info">
+                        <h4>Juliana Ferreira</h4>
+                        <span>Professora</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-premium">
+        <div class="cta-bg"></div>
+        <div class="cta-content">
+            <h2>Pronto para revolucionar sua <span class="gradient-text">mobilidade?</span></h2>
+            <p>Junte-se a milhares de usuários que já transformaram sua rotina com o MobiBus</p>
+            <a href="pages/perfil.html" class="btn-cta">
+                <span>Criar Conta Gratuita</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-premium">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo-wrapper">
+                    <i class="fas fa-bus-alt"></i>
+                    <span>MobiBus</span>
+                </div>
+                <p>Mobilidade urbana inteligente para cidades mais eficientes.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Produto</h4>
+                <ul>
+                    <li><a href="pages/mapa.html">Mapa ao Vivo</a></li>
+                    <li><a href="pages/linhas.html">Linhas</a></li>
+                    <li><a href="pages/tarifas.html">Tarifas</a></li>
+                    <li><a href="#">API</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Suporte</h4>
+                <ul>
+                    <li><a href="#">Central de Ajuda</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contato</a></li>
+                    <li><a href="#">Status</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacidade</a></li>
+                    <li><a href="#">Termos</a></li>
+                    <li><a href="#">Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 MobiBus. Todos os direitos reservados. Projeto de Mobilidade Urbana.</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
